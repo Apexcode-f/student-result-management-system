@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- If you have a dashboard.js, keep this line. Otherwise, remove it. -->
+    <script src="../js/dashboard.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <h2>Welcome, <span id="username"></span></h2>
+
+      <section id="results-section" class="results-section">
+        <h3>Your Academic Results</h3>
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Score</th>
+              <th>Grade</th>
+              <th>Semester</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+
+        <div class="download-buttons">
+          <button id="downloadPDF">Download as PDF</button>
+          <button id="downloadDOCX">Download as Word</button>
+        </div>
+
+        <div id="downloadMessage" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.7.0/docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="js/student.js"></script>
+  </body>
+</html>

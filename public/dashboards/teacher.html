@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- If you have a teacher.js, keep this line. Otherwise, remove it. -->
+    <script src="../js/teacher.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Teacher Dashboard</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <section>
+        <h2>Welcome, <span id="teacherName"></span></h2>
+      </section>
+
+      <section class="form-card">
+        <h3>Publish Result</h3>
+        <form id="addResultForm" autocomplete="on">
+          <label for="studentUsername">Student Username:</label>
+          <input
+            id="studentUsername"
+            name="studentUsername"
+            placeholder="Student Username"
+            required
+          />
+          <label for="course">Course:</label>
+          <input
+            id="course"
+            name="course"
+            placeholder="Course (e.g. CS101)"
+            required
+          />
+          <label for="score">Score:</label>
+          <input
+            id="score"
+            name="score"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="Score"
+            required
+          />
+          <label for="grade">Grade:</label>
+          <input id="grade" name="grade" placeholder="Grade (e.g. A)" />
+          <button type="submit">Add Result</button>
+        </form>
+        <p id="addResultMsg" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <h3>Your Published Results</h3>
+        <table id="teacherResultsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Student</th>
+              <th>Course</th>
+              <th>Score</th>
+              <th>Grade</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Edit Result -->
+      <section>
+        <h3>Update Result</h3>
+        <form id="updateResultForm" autocomplete="on">
+          <label for="resultId">Result ID:</label>
+          <input
+            id="resultId"
+            name="resultId"
+            placeholder="Result ID"
+            required
+          />
+          <label for="newScore">New Score:</label>
+          <input
+            id="newScore"
+            name="newScore"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="New Score"
+            required
+          />
+          <label for="newGrade">New Grade:</label>
+          <input
+            id="newGrade"
+            name="newGrade"
+            placeholder="New Grade (e.g. A)"
+          />
+          <button type="submit">Update Result</button>
+        </form>
+        <p id="updateResultMsg" aria-live="polite"></p>
+      </section>
+    </main>
+  </body>
+</html>

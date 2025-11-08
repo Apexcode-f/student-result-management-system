@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Student Result System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #005fa3, #0078d7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 24px 0; /* allow small breathing room on short screens */
+      }
+
+      .register-box {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        padding: 20px 28px; /* reduced vertical padding to shorten height */
+        border-radius: 16px;
+        width: 420px;
+        max-width: 92%;
+        color: white;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .register-box h2 {
+        margin-bottom: 16px; /* tightened spacing */
+        font-size: 24px;
+        letter-spacing: 0.6px;
+      }
+
+      .input-group {
+        position: relative;
+        margin: 8px 0; /* slightly reduced */
+      }
+
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 10px; /* slightly reduced so form is more compact */
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #d0d0d0;
+        color: white;
+        font-size: 15px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .input-group label {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: #ccc;
+        font-size: 14px;
+        pointer-events: none;
+        transition: 0.3s ease;
+      }
+
+      .input-group input:focus ~ label,
+      .input-group input:valid ~ label,
+      .input-group select:focus ~ label {
+        top: -10px;
+        font-size: 13px;
+        color: #fff;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px; /* reduce vertical size */
+        border: none;
+        border-radius: 6px;
+        background: #00aaff;
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: 0.18s;
+      }
+
+      button:hover {
+        background: #008bd1;
+        transform: scale(1.03);
+      }
+
+      .links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6px;
+      }
+
+      .links button {
+        width: 48%;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .links button:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="auth register">
+    <div class="register-box">
+      <h2>Register</h2>
+      <form
+        id="registerForm"
+        action="/api/register"
+        method="post"
+        autocomplete="on"
+      >
+        <div class="input-group">
+          <input type="text" id="username" name="username" required />
+          <label for="username">Username</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" name="password" required />
+          <label for="password">Password</label>
+        </div>
+        <div class="input-group">
+          <select id="role" name="" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+          </select>
+          <label for="role">Role</label>
+        </div>
+        <button type="submit">Register</button>
+
+        <div class="links">
+          <button type="button" onclick="window.location.href='index.html'">
+            Home
+          </button>
+          <button type="button" onclick="window.location.href='login.html'">
+            Login
+          </button>
+        </div>
+      </form>
+      <p id="registerMessage" aria-live="polite"></p>
+      <div class="insight">
+        <strong>About the system:</strong>
+        <p>
+          Register as a student, teacher, or admin. Students will be able to
+          view results; teachers publish results; admins manage the system.
+        </p>
+      </div>
+    </div>
+
+    <script src="js/register.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Results Management System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Extra styles for homepage */
+      .hero {
+        text-align: center;
+        padding: 60px 20px 36px;
+        /* background removed to let the page background image show through */
+        color: white;
+        animation: fadeIn 0.35s ease;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero button {
+        background: linear-gradient(180deg, #ffffff, #f3f8ff);
+        color: #0066b3;
+        font-weight: 600;
+        padding: 8px 14px;
+        display: inline-block;
+        width: auto;
+        border-radius: 999px; /* pill */
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        transition: box-shadow 0.12s ease, transform 0.04s ease;
+      }
+
+      /* keep interaction subtle on active/focus but remove hover scaling */
+      .hero button:active,
+      .hero button:focus {
+        transform: translateY(1px);
+        outline: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .video-section {
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+        background: #f4f7fa;
+      }
+
+      .video-section video {
+        width: 80%;
+        max-width: 700px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      section {
+        padding: 50px 20px;
+        max-width: 900px;
+        margin: auto;
+        animation: fadeIn 0.6s ease;
+      }
+
+      h2 {
+        color: #0078d7;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        background: white;
+        padding: 15px 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        line-height: 1.6;
+      }
+
+      .contact {
+        text-align: center;
+        background: #0078d7;
+        color: white;
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .contact p {
+        margin: 10px 0;
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body class="home">
+    <header>
+      <h1>Student Result Management System</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="#faq" id="navFaq">FAQ</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Welcome to our Student Results Management System!</h1>
+      <p>
+        Manage your academic results efficiently, track your progress, and make
+        informed decisions about your academic journey. Access and manage your
+        results, view transcripts, and analyze performance with ease.
+      </p>
+      <button onclick="window.location.href='login.html'">View Results</button>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Student Result Management System</p>
+        <div class="footer-contact">
+          <p>Built by: <strong>Frank Asare</strong></p>
+          <p>
+            📧
+            <a href="mailto:apexcode.f@gmail.com">apexcode.f@gmail.com</a>
+          </p>
+          <p>
+            🔗
+            <a
+              href="https://apexcode-f.github.io/frank-personal-portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Portfolio</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Suspended FAQ panel -->
+    <aside id="faqPanel" aria-hidden="true">
+      <button id="faqClose" aria-label="Close FAQ">×</button>
+      <h3>Frequently Asked Questions</h3>
+      <ul>
+        <li>
+          <strong>What is the purpose of this system?</strong><br />The system
+          helps students manage and view results.
+        </li>
+        <li>
+          <strong>How do I access my results?</strong><br />Login with your
+          account to view results.
+        </li>
+      </ul>
+    </aside>
+    <!-- FAQ toggle button removed per request -->
+
+    <script>
+      const faqToggle = document.getElementById("faqToggle");
+      const faqPanel = document.getElementById("faqPanel");
+      const faqClose = document.getElementById("faqClose");
+      const navFaq = document.getElementById("navFaq");
+
+      // Defensive: only attach listeners when elements exist
+      if (faqPanel) {
+        // If a toggle button exists (older UX), wire it
+        if (faqToggle) {
+          faqToggle.addEventListener("click", () => {
+            faqPanel.classList.toggle("open");
+            faqPanel.setAttribute(
+              "aria-hidden",
+              !faqPanel.classList.contains("open")
+            );
+          });
+        }
+
+        // Close button inside panel
+        if (faqClose) {
+          faqClose.addEventListener("click", () => {
+            faqPanel.classList.remove("open");
+            faqPanel.setAttribute("aria-hidden", "true");
+          });
+        }
+
+        // Open panel when user clicks the FAQ link in the header
+        if (navFaq) {
+          navFaq.addEventListener("click", (e) => {
+            e.preventDefault();
+            faqPanel.classList.add("open");
+            faqPanel.setAttribute("aria-hidden", "false");
+          });
+        }
+
+        // Close the panel when the cursor leaves it
+        faqPanel.addEventListener("mouseleave", () => {
+          faqPanel.classList.remove("open");
+          faqPanel.setAttribute("aria-hidden", "true");
+        });
+      }
+    </script>
+    <script src="js/theme-toggle.js" defer></script>
+  </body>
+</html>
