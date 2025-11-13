@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Student Result Management System
 
 This project is a web-based Student Result Management System for managing and viewing academic results. It is designed for use by students, teachers, and administrators.
@@ -52,3 +53,7 @@ Frank Asare
 ---
 
 For any issues or questions, please contact the project author.
+=======
+# student-result-management-system
+StudentResultSystem is a simple Node.js web application for managing student exam results and user accounts (students, teachers, admins). It serves a static front-end from public and exposes server-side API endpoints (in server.js) that insert, query, and return user and results data stored in a SQL database (student_result_system.sql).
+>>>>>>> 1bd2107b180c6239572834ec5f82ac006465a74a
